@@ -13,7 +13,36 @@
                     <img src = '<%=image.image %>' src = '<%=image.name %>' height='250px' width="250px">
                 </li>
                 <% }) %>
-            </ul>                
+            </ul>   
+            <div class='pages'>                    
+                    <div class='prev-button'>   
+                        <% if(hasPrevPage){ %>
+                            <a href='/?page=<%=currentPage-1 %>'>Prev</a>
+                        <% } %> 
+                    </div>  
+                    <div class='page-button'>              
+                        <%if(pages) {%>  
+                            <span>
+                                <%if(currentPage > 1) {%>              
+                                    <a href='/?page=<%=currentPage-1 %>'><%= currentPage-1 %></a>
+                                <% } %>
+                            </span>
+                            <span>
+                                <a href='/?page=<%=currentPage %>' class='active'><%= currentPage %></a>
+                            </span>
+                            <span>
+                                <%if(currentPage < pages) {%>              
+                                    <a href='/?page=<%=currentPage+1 %>'><%= currentPage+1 %></a>
+                                <% } %>
+                            </span>
+                        <% } %>
+                    </div>
+                    <div class='next-button'>
+                        <% if(hasNextPage){ %>
+                            <a href='/?page=<%=currentPage+1 %>'>Next</a>
+                        <% } %> 
+                    </div>  
+                </div>             
         <% } else {%>
             <h1> no image found</h1>
         <% } %>
